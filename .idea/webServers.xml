@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f7421873-1444-4eb2-bedf-0dd69f4d3f44" name="DHC-103">
+        <fileTransfer rootFolder="/data/chenyuting" accessType="SFTP" host="10.131.102.103" port="22" sshConfigId="43144cf4-ad43-4208-b0c2-2e7713afb165" sshConfig="chenyuting@10.131.102.103:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
