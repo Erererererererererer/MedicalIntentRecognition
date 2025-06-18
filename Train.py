@@ -23,7 +23,7 @@ def train(model, device, train_loader, dev_loader, criterion, optimizer, num_epo
     model.to(device)
     # model = torch.nn.DataParallel(model, device_ids=[2, 3, 4, 5])  # 多卡并行
 
-    lr = 5e-5
+    # lr = 5e-5
     for epoch in range(num_epoch):
         model.train()
         train_loss = 0
@@ -35,7 +35,7 @@ def train(model, device, train_loader, dev_loader, criterion, optimizer, num_epo
         acc_train = []
         acc_ave_train = []
 
-        optimizer = optim.AdamW(model.parameters(), lr=lr * 0.8, weight_decay=0.01)
+        # optimizer = optim.AdamW(model.parameters(), lr=lr * 0.8, weight_decay=0.01)
 
         for batch, (data, mask, target) in enumerate(train_loader):
             data, mask, target = data.to(device), mask.to(device), target.to(device)
@@ -153,10 +153,10 @@ if __name__ == "__main__":
     num_epoch = 5
 
     # 定义交叉熵损失函数
-    total_samples = sum(classes_count)  # 总样本数
-    CE_weight = [np.sqrt(total_samples) / (np.sqrt(count) * 16) for count in classes_count]
-    print(CE_weight)
-    CE_weight_torch = torch.tensor(CE_weight, dtype=torch.float32).to(device)
+    # total_samples = sum(classes_count)  # 总样本数
+    # CE_weight = [min(np.sqrt(total_samples) / (np.sqrt(count) * 16) * 10, 2) for count in classes_count]
+    # print(CE_weight)
+    # CE_weight_torch = torch.tensor(CE_weight, dtype=torch.float32).to(device)
     criterion = torch.nn.CrossEntropyLoss()  # 加权交叉熵weight=CE_weight_torch
     # 定义 Adam 优化器
     optimizer = optim.AdamW(model.parameters(), lr=5e-5, weight_decay=0.01)

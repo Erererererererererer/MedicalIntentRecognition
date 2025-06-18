@@ -11,6 +11,7 @@ from DataPrepare import save_path
 
 pretrain_model = "google-bert/bert-base-chinese"
 # pretrain_model = "nghuyong/ernie-3.0-base-zh"
+# pretrain_model = "trueto/medbert-base-chinese"
 
 
 class BERTClassifier(nn.Module):
